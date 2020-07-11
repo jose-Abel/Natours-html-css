@@ -1,0 +1,188 @@
+/*
+COLORS:
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+
+*/
+
+* { /*the universal selector is used to perform a basic reset for all the browsers to behave the same way*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /*change the box model so the border and padding are not added to the total width and height of an element */
+}
+
+body {/*properties related to font are usually inherited, body is the parent of all other elements*/
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7; /*bigger than the predefine line-height*/
+    color: #777;
+    padding: 30px;
+}
+
+.header {
+    height: 95vh;/*95% of the viewport height*/
+    background-image: linear-gradient(to right bottom, 
+    rgba(126, 213, 111, 0.8), 
+    rgba(40, 180, 131, 0.8)), 
+    url("../img/hero.jpg");
+    background-size: cover;/*whatever the width of the viewport or the element try to fit the element inside the box*/
+    background-position: top;/*whatever the view port size the top of the image stays the same*/
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    position: relative;
+}
+
+.header__logo-box {
+    position: absolute; /*position absolute takes reference the parent element that have it's position to relative. With position absolute can use the top and left propierties used below*/
+    top: 40px;
+    left: 40px;
+}
+
+.header__logo{
+    height: 35px;
+}
+
+.header__text-box{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);/*The top and left are in relation to the parent element, but in the transform translate is in relation to the element itself making it possible that the elment to be exactly at the center*/
+    text-align: center;
+}
+
+.heading-primary {
+    color: #ffff;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;/*determine if the backpart of an element after we transform it is visible or hidden for the user*/
+    margin-bottom: 60px;
+
+}
+
+.heading-primary--main {
+    display: block;  /*display block makes elements occupied the entire width they have available and creates line breaks after and before them*/
+    font-size: 60px;
+    font-weight: 400;
+    letter-spacing: 35px;
+    
+    /*Properties required for the animation to work*/
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+
+    /*--------------------------------------------*/
+    /* 
+    animation-delay: 3s; 
+    animation-iteration-count: 3;
+    */
+}
+
+.heading-primary--sub{
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
+    animation: moveInRight 1s ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.btn:link,
+.btn:visited {/*:link is a pseudo-class that is a special state of a selector when it is an anchor element, visited is when the user already click on the button before and sees the button again. The we use pseudo classes to style elements under special conditions*/ 
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;/*property so the blocks model works on an inline element as if it were a normal block element*/
+    border-radius: 100px;
+    transition: all .2s;
+    position: relative;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,.2);/*x y blurr and color*/
+}
+
+.btn:active {/*pseudo class when the button is clicked*/
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.btn--white {
+    background-color: white;
+    color: #777;
+}
+
+.btn::after {/*act like a virtual element right after the element we are selecting. Add an element that looks exactly than the element we already have but put it behind the first element*/
+    /*In order for an :after pseudo element appear on the page we have to specify this properties */
+    content: "";
+    display: inline-block;/*because the button is an inline block too*/
+    height: 100%;
+    width: 100%;/*the :after pseudo element is treated like a child of the button so height and width of this is the height and width of the button*/
+    /*-----------------------------------------------------*/
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;/*define the position of the elements if there one on top of the other so this one is behind the button*/
+    transition: all .4s;/*transition for the hover state*/
+}
+
+
+.btn--white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn--animated {
+    animation: moveInBottom .5s ease-out .75s; /*animation-name, animation-duration, animation-timing-function, animation-delay*/
+    animation-fill-mode: backwards; /*automatically applies the styles of the 0% before the animation starts*/
+}
