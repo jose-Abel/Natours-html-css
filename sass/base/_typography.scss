@@ -1,0 +1,42 @@
+body {/*properties related to font are usually inherited, body is the parent of all other elements*/
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7; /*bigger than the predefine line-height*/
+    color: $color-gray-dark;
+    padding: 3rem;
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+
+    backface-visibility: hidden;/*determine if the backpart of an element after we transform it is visible or hidden for the user*/
+    margin-bottom: 6rem;
+
+    &--main {
+        display: block;  /*display block makes elements occupied the entire width they have available and creates line breaks after and before them*/
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        
+        /*Properties required for the animation to work*/
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    
+        /*--------------------------------------------*/
+        /* 
+        animation-delay: 3s; 
+        animation-iteration-count: 3;
+        */
+    }
+    
+    &--sub{
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1s ease-out;
+    }
+}
+

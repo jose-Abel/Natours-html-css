@@ -1,0 +1,58 @@
+.btn {
+    &:link,
+    &:visited {/*:link is a pseudo-class that is a special state of a selector when it is an anchor element, visited is when the user already click on the button before and sees the button again. The we use pseudo classes to style elements under special conditions*/ 
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;/*property so the blocks model works on an inline element as if it were a normal block element*/
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+        font-size: 1.6rem;
+    }
+
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black,.2);/*x y blurr and color*/
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {/*pseudo class when the button is clicked*/
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 1rem rgba($color-black,.2);
+    }
+
+    &--white {
+        background-color: white;
+        color: $color-gray-dark;
+
+        &::after {
+            background-color: $color-white;
+        }
+
+    }
+
+    &::after {/*act like a virtual element right after the element we are selecting. Add an element that looks exactly than the element we already have but put it behind the first element*/
+        /*In order for an :after pseudo element appear on the page we have to specify this properties */
+        content: "";
+        display: inline-block;/*because the button is an inline block too*/
+        height: 100%;
+        width: 100%;/*the :after pseudo element is treated like a child of the button so height and width of this is the height and width of the button*/
+        /*-----------------------------------------------------*/
+        border-radius: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;/*define the position of the elements if there one on top of the other so this one is behind the button*/
+        transition: all .4s;/*transition for the hover state*/
+    }
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s; /*animation-name, animation-duration, animation-timing-function, animation-delay*/
+        animation-fill-mode: backwards; /*automatically applies the styles of the 0% before the animation starts*/
+    }
+}

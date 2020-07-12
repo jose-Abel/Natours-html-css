@@ -1,0 +1,16 @@
+*,
+*::after,
+*::before { /*the universal selector is used to perform a basic reset for all the browsers to behave the same way*/
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;/*force the box-sizing to be inherited*/
+}
+
+html {
+    font-size: 62.5%;/*defines what 1 rem is*/
+}
+
+body {/*properties related to font are usually inherited, body is the parent of all other elements*/
+
+    box-sizing: border-box; /*change the box model so the border and padding are not added to the total width and height of an element */
+}
