@@ -1,0 +1,9 @@
+//row has 0 px height because all of the child elements of the row elements are floated so the height collapses and becomes 0 so we use the clearfix technique
+
+@mixin clearfix {//appends a pseudo element after the element so that it clear the float
+    &::after {
+        content: "";//always needs to specify the content property otherwise a pseudo element will not appear on the page
+        display: table;//standard version of the clearfix
+        clear: both; //property that perform the clearfix, clear both flows, left and right
+    }
+}
