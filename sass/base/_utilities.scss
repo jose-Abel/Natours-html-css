@@ -1,0 +1,7 @@
+.u-center-text {text-align: center;}//since the h2 is an inline block so if we set the parent to text align center then the inline block element inside it is treated as text and be centered in the parent
+
+.u-margin-bottom-big { margin-bottom: 8rem; }//allows to set margin across our page allowing our main components, blocks or elements to stay independent and reusable across our page
+
+.u-margin-bottom-medium { margin-bottom: 4rem; }
+
+.u-margin-bottom-small { margin-bottom: 1.5rem; }

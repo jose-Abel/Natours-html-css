@@ -6,7 +6,7 @@
     url("../img/hero.jpg");
     background-size: cover;/*whatever the width of the viewport or the element try to fit the element inside the box*/
     background-position: top;/*whatever the view port size the top of the image stays the same*/
-    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
     position: relative;
 
     &__logo-box {

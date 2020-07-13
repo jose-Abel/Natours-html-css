@@ -1,6 +1,5 @@
 .row {
     max-width: $grid-width;//if we have enough space on the view port than will be 114rem otherwise it will fill 100% of the available space we have
-    background-color: #eee;
     margin: 0 auto; //center block elements inside of another block element
     
     //.row:last-child() select the last child
@@ -12,7 +11,6 @@
     @include clearfix;
 
     [class^="col-"] {
-        background-color: orangered;
         float: left;
         
         &:not(:last-child) {
