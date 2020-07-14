@@ -36,6 +36,16 @@
 
     }
 
+    &--green {
+        background-color: $color-primary;
+        color: $color-white;
+
+        &::after {
+            background-color: $color-primary;
+        }
+
+    }
+
     &::after {/*act like a virtual element right after the element we are selecting. Add an element that looks exactly than the element we already have but put it behind the first element*/
         /*In order for an :after pseudo element appear on the page we have to specify this properties */
         content: "";
