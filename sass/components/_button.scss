@@ -1,4 +1,5 @@
 .btn {
+    &,
     &:link,
     &:visited {/*:link is a pseudo-class that is a special state of a selector when it is an anchor element, visited is when the user already click on the button before and sees the button again. The we use pseudo classes to style elements under special conditions*/ 
         text-transform: uppercase;
@@ -9,11 +10,16 @@
         transition: all .2s;
         position: relative;
         font-size: $default-font-size;
+
+        //Change for the <button> element
+        border: none;
+        cursor: pointer;
+
     }
 
     &:hover {
         transform: translateY(-.3rem);
-        box-shadow: 0 1rem 2rem rgba($color-black,.2);/*x y blurr and color*/
+        box-shadow: 0 1rem 2rem rgba($color-black,.2);//x y blurr and color
 
         &::after {
             transform: scaleX(1.4) scaleY(1.6);
@@ -21,7 +27,9 @@
         }
     }
 
-    &:active {/*pseudo class when the button is clicked*/
+    &:active,//pseudo class when the button is clicked
+    &:focus {
+        outline: none;
         transform: translateY(-.1rem);
         box-shadow: 0 .5rem 1rem rgba($color-black,.2);
     }
