@@ -32,3 +32,8 @@ body {/*properties related to font are usually inherited, body is the parent of 
         padding: 0;
     }
 }
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
