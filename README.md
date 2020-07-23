@@ -1,5 +1,6 @@
-# Budgety
-Project build HTML and CSS with the pre-processor SASS where I built the main webpage of a fictitious tour guide company called Natours following the guide in the Udemy course "Advanced CSS and Sass: Flexbox, Grid, Animations and More!" created by Jonas Schmedtmann.
+# Natours main page
+
+Project build mainly with HTML and CSS with the pre-processor SASS where I built the main webpage of a fictitious tour guide company called Natours following the guide in the Udemy course "Advanced CSS and Sass: Flexbox, Grid, Animations and More!" created by Jonas Schmedtmann.
 
 This project
 ![screenshot](./app_screenshot.png)
